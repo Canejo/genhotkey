@@ -1,0 +1,15 @@
+<div class="container-fluid">
+  <div class="row mb-3">
+    <div class="col-9">
+      <input type="text" class="form-control" placeholder="Identificação" />
+    </div>
+    <div class="col">
+      <input type="text" class="form-control" placeholder="Hotkey" />
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <ngx-monaco-editor [options]="editorOptions" [(ngModel)]="code"></ngx-monaco-editor>
+    </div>
+  </div>
+</div>

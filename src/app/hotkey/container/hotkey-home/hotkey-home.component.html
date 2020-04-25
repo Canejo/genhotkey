@@ -1,0 +1,10 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-3">
+      <app-hotkey-list [hotkeys]="hotkeys" (select)="select($event)"></app-hotkey-list>
+    </div>
+    <div class="col">
+      <app-hotkey-editor></app-hotkey-editor>
+    </div>
+  </div>
+</div>

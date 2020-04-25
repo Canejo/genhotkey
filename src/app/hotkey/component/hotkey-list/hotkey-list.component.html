@@ -1,0 +1,11 @@
+<ul>
+  <li *ngFor="let hotkey of hotkeys">
+    <h6>{{ hotkey.Nome }}</h6>
+    <span>{{ hotkey.Itens.length }} hotkeys</span>
+    <ul>
+      <li *ngFor="let item of hotkey.Itens" (click)="select.emit(item)">
+        {{ item.Nome }}
+      </li>
+    </ul>
+  </li>
+</ul>
