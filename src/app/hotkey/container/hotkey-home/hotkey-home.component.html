@@ -4,7 +4,11 @@
       <app-hotkey-list [hotkeys]="hotkey$ | async" (select)="select($event)"> </app-hotkey-list>
     </div>
     <div class="col">
-      <app-hotkey-editor></app-hotkey-editor>
+      <app-hotkey-panel
+        [selectedHotkey]="selectedHotkey$ | async"
+        (fechar)="fechar($event)"
+        (save)="save($event)"
+      ></app-hotkey-panel>
     </div>
   </div>
 </div>

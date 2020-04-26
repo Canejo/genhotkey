@@ -1,15 +1,15 @@
-<div class="container-fluid">
+<div class="container-fluid" [formGroup]="hotkeyForm">
   <div class="row mb-3">
     <div class="col-9">
-      <input type="text" class="form-control" placeholder="Identificação" />
+      <input type="text" class="form-control" placeholder="Identificação" formControlName="Nome" />
     </div>
     <div class="col">
-      <input type="text" class="form-control" placeholder="Hotkey" />
+      <input type="text" class="form-control" placeholder="Hotkey" formControlName="Atalho" />
     </div>
   </div>
   <div class="row">
     <div class="col">
-      <ngx-monaco-editor [options]="editorOptions" [(ngModel)]="code"></ngx-monaco-editor>
+      <ngx-monaco-editor formControlName="Script" [options]="editorOptions"></ngx-monaco-editor>
     </div>
   </div>
 </div>

@@ -1,10 +1,18 @@
 import { HotkeyCollection } from './hotkey.collection';
+import { Hotkey } from './hotkey.model';
 
 export default class HotkeyState {
-  Hotkeys: Array<HotkeyCollection>;
-  Error: Error;
+  hotkeys: Array<HotkeyCollection>;
+  selectedHotkeys: Array<Hotkey>;
+
+  error: Error;
 }
 
 export const initializeState = (): HotkeyState => {
-  return { Hotkeys: Array<HotkeyCollection>(), Error: null };
+  return {
+    hotkeys: Array<HotkeyCollection>(),
+    selectedHotkeys: Array<Hotkey>(),
+
+    error: null,
+  };
 };

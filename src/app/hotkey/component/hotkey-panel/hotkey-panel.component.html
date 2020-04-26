@@ -1,0 +1,9 @@
+<ul ngbNav #nav="ngbNav" class="nav-tabs">
+  <li ngbNavItem *ngFor="let hotkey of selectedHotkey">
+    <a ngbNavLink>{{ hotkey.Nome }}</a>
+    <ng-template ngbNavContent>
+      <app-hotkey-editor [hotkey]="hotkey" (save)="save.emit($event)"></app-hotkey-editor>
+    </ng-template>
+  </li>
+</ul>
+<div [ngbNavOutlet]="nav"></div>

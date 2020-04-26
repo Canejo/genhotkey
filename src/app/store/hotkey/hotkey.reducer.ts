@@ -8,7 +8,17 @@ export const intialState = initializeState();
 const reducer = createReducer(
   intialState,
   on(HotkeyActions.listHotkeySuccess, (state: HotkeyState, { payload }) => {
-    return { ...state, Hotkeys: payload };
+    return { ...state, hotkeys: payload };
+  }),
+  on(HotkeyActions.selectHotkey, (state: HotkeyState, { payload }) => {
+    if (!state.selectedHotkeys.find((m) => m.Id === payload.Id)) {
+      return { ...state, selectedHotkeys: [...state.selectedHotkeys, payload] };
+    } else {
+      return state;
+    }
+  }),
+  on(HotkeyActions.fecharHotkey, (state: HotkeyState, { payload }) => {
+    return { ...state, selectedHotkeys: state.selectedHotkeys.filter((m) => m.Id !== payload.Id) };
   })
 );
 
