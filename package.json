@@ -40,6 +40,8 @@
     "@angular/router": "^9.1.0",
     "@fortawesome/fontawesome-free": "^5.1.0",
     "@ng-bootstrap/ng-bootstrap": "^6.0.2",
+    "@ngrx/effects": "^9.1.0",
+    "@ngrx/store": "^9.1.0",
     "@ngx-translate/core": "^12.0.0",
     "bootstrap": "^4.1.1",
     "date-fns": "^2.9.0",

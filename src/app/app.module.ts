@@ -12,6 +12,10 @@ import { HomeModule } from './home/home.module';
 import { ShellModule } from './shell/shell.module';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
+import { StoreModule } from '@ngrx/store';
+import { HotkeyReducer } from './store/hotkey/hotkey.reducer';
+import { EffectsModule } from '@ngrx/effects';
+import { HotkeyEffects } from './store/hotkey/hotkey.effects';
 
 @NgModule({
   imports: [
@@ -25,7 +29,9 @@ import { AppRoutingModule } from './app-routing.module';
     ShellModule,
     HomeModule,
     MonacoEditorModule.forRoot(),
-    AppRoutingModule, // must be imported as the last module as it contains the fallback route
+    StoreModule.forRoot({ hotkey: HotkeyReducer }),
+    EffectsModule.forRoot([HotkeyEffects]),
+    AppRoutingModule,
   ],
   declarations: [AppComponent],
   providers: [],
