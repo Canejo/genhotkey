@@ -1,6 +1,7 @@
 import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 
-import { HotkeyCollection } from '@app/store/hotkey/hotkey.collection';
+import { Folder } from '@app/store/folder/folder.model';
+import { Hotkey } from '@app/store/hotkey/hotkey.model';
 
 @Component({
   selector: 'app-hotkey-list',
@@ -8,7 +9,9 @@ import { HotkeyCollection } from '@app/store/hotkey/hotkey.collection';
   styleUrls: ['./hotkey-list.component.scss'],
 })
 export class HotkeyListComponent implements OnInit {
-  @Input() hotkeys: HotkeyCollection[];
+  @Input() hotkeys: Hotkey[];
+  @Input() folders: Folder[];
+
   @Output() select: EventEmitter<any> = new EventEmitter();
 
   constructor() {}

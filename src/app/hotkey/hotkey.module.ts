@@ -9,9 +9,16 @@ import { HotkeyRoutingModule } from './hotkey-routing.module';
 import { HotkeyListComponent } from './component/hotkey-list/hotkey-list.component';
 import { HotkeyHomeComponent } from './container/hotkey-home/hotkey-home.component';
 import { HotkeyPanelComponent } from './component/hotkey-panel/hotkey-panel.component';
+import { HotkeySaveComponent } from './component/hotkey-save/hotkey-save.component';
 
 @NgModule({
-  declarations: [HotkeyEditorComponent, HotkeyListComponent, HotkeyHomeComponent, HotkeyPanelComponent],
+  declarations: [
+    HotkeyEditorComponent,
+    HotkeyListComponent,
+    HotkeyHomeComponent,
+    HotkeyPanelComponent,
+    HotkeySaveComponent,
+  ],
   imports: [CommonModule, MonacoEditorModule, HotkeyRoutingModule, NgbModule, ReactiveFormsModule],
 })
 export class HotkeyModule {}

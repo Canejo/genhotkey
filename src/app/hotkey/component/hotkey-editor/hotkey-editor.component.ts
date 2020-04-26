@@ -11,6 +11,7 @@ import { Hotkey } from '@app/store/hotkey/hotkey.model';
 export class HotkeyEditorComponent implements OnInit, OnChanges {
   @Input() hotkey: Hotkey;
   @Output() save: EventEmitter<Hotkey> = new EventEmitter();
+  @Output() change: EventEmitter<{ hotkey: Hotkey; change: boolean }> = new EventEmitter();
 
   editorOptions = { theme: 'vs-dark', language: 'javascript' };
 
@@ -24,15 +25,11 @@ export class HotkeyEditorComponent implements OnInit, OnChanges {
   constructor(private fb: FormBuilder) {}
 
   ngOnInit(): void {
-    this.hotkeyForm.valueChanges.subscribe((value) => {
-      this.hotkey = {
-        ...this.hotkey,
-        Nome: value.Nome,
-        Script: value.Script,
-        Atalho: value.Atalho,
-      };
-
-      this.save.emit(this.hotkey);
+    this.hotkeyForm.valueChanges.subscribe(() => {
+      this.change.emit({
+        hotkey: this.getNewValue(),
+        change: true,
+      });
     });
   }
 
@@ -49,5 +46,21 @@ export class HotkeyEditorComponent implements OnInit, OnChanges {
     console.log(event);
     const inputChar = String.fromCharCode((event as KeyboardEvent).charCode);
     console.log(inputChar);
+  }
+
+  onSave() {
+    if (this.hotkeyForm.valid) {
+      this.save.emit(this.getNewValue());
+    }
+  }
+
+  getNewValue() {
+    const value = this.hotkeyForm.value;
+    return {
+      ...this.hotkey,
+      Nome: value.Nome,
+      Script: value.Script,
+      Atalho: value.Atalho,
+    };
   }
 }

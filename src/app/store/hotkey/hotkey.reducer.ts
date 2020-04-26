@@ -11,14 +11,19 @@ const reducer = createReducer(
     return { ...state, hotkeys: payload };
   }),
   on(HotkeyActions.selectHotkey, (state: HotkeyState, { payload }) => {
-    if (!state.selectedHotkeys.find((m) => m.Id === payload.Id)) {
+    if (payload === null) {
+      return { ...state, selectedHotkeys: [...state.selectedHotkeys, { Id: '', Nome: 'Hotkey sem título' }] };
+    } else if (!state.selectedHotkeys.find((m) => m.Id === payload.Id)) {
       return { ...state, selectedHotkeys: [...state.selectedHotkeys, payload] };
     } else {
       return state;
     }
   }),
   on(HotkeyActions.fecharHotkey, (state: HotkeyState, { payload }) => {
-    return { ...state, selectedHotkeys: state.selectedHotkeys.filter((m) => m.Id !== payload.Id) };
+    return {
+      ...state,
+      selectedHotkeys: [...state.selectedHotkeys.slice(0, payload), ...state.selectedHotkeys.slice(payload + 1)],
+    };
   })
 );
 

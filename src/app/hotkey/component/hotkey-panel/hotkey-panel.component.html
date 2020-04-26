@@ -1,9 +1,16 @@
-<ul ngbNav #nav="ngbNav" class="nav-tabs">
-  <li ngbNavItem *ngFor="let hotkey of selectedHotkey">
-    <a ngbNavLink>{{ hotkey.Nome }}</a>
+<ul ngbNav #nav="ngbNav" class="nav-tabs" [(activeId)]="active">
+  <li [ngbNavItem]="index" *ngFor="let hotkey of selectedHotkey; let index = index">
+    <a ngbNavLink>{{ hotkey.Nome }} <i (click)="onFechar(index)" class="fas fa-times ml-1"></i></a>
     <ng-template ngbNavContent>
-      <app-hotkey-editor [hotkey]="hotkey" (save)="save.emit($event)"></app-hotkey-editor>
+      <app-hotkey-editor
+        [hotkey]="hotkey"
+        (save)="save.emit($event)"
+        (change)="onChange($event, index)"
+      ></app-hotkey-editor>
     </ng-template>
+  </li>
+  <li [ngbNavItem]="selectedHotkey.length">
+    <a (click)="onNew()" ngbNavLink><i class="fas fa-plus"></i></a>
   </li>
 </ul>
 <div [ngbNavOutlet]="nav"></div>

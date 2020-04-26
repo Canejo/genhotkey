@@ -1,10 +1,13 @@
 <div class="container-fluid" [formGroup]="hotkeyForm">
-  <div class="row mb-3">
-    <div class="col-9">
+  <div class="row my-3">
+    <div class="col">
       <input type="text" class="form-control" placeholder="Identificação" formControlName="Nome" />
     </div>
-    <div class="col">
+    <div class="col-3">
       <input type="text" class="form-control" placeholder="Hotkey" formControlName="Atalho" />
+    </div>
+    <div class="col-auto">
+      <button type="button" class="btn btn-primary" (click)="onSave()">Save</button>
     </div>
   </div>
   <div class="row">

@@ -1,6 +1,6 @@
 export class Hotkey {
   Id: String;
-  IdFolder: String;
+  IdFolder?: String;
   Nome: String;
   Script?: String;
   Atalho?: String;
