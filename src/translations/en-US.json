@@ -1,7 +1,9 @@
 {
-  "APP_NAME": "rocket test",
+  "APP_NAME": "Generate hotkey",
   "About": "About",
   "Hello world !": "Hello world !",
   "Home": "Home",
-  "Version": "Version"
+  "Version": "Version",
+  "Hotkey": "Hotkey",
+  "New folder": "New folder"
 }

@@ -1,3 +1,7 @@
+<button type="button" class="btn btn-link" translate (click)="newFolder.emit()">
+  <i class="fas fa-plus"></i> New folder
+</button>
+
 <ul>
   <li *ngFor="let hotkey of hotkeys" (click)="select.emit(hotkey)">
     {{ hotkey.Nome }}

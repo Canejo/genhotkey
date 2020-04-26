@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { MonacoEditorModule } from 'ngx-monaco-editor';
 import { ReactiveFormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { TranslateModule } from '@ngx-translate/core';
 
 import { HotkeyEditorComponent } from './component/hotkey-editor/hotkey-editor.component';
 import { HotkeyRoutingModule } from './hotkey-routing.module';
@@ -19,6 +20,6 @@ import { HotkeySaveComponent } from './component/hotkey-save/hotkey-save.compone
     HotkeyPanelComponent,
     HotkeySaveComponent,
   ],
-  imports: [CommonModule, MonacoEditorModule, HotkeyRoutingModule, NgbModule, ReactiveFormsModule],
+  imports: [CommonModule, TranslateModule, MonacoEditorModule, HotkeyRoutingModule, NgbModule, ReactiveFormsModule],
 })
 export class HotkeyModule {}

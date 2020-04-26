@@ -51,4 +51,6 @@ export class HotkeyHomeComponent implements OnInit {
   onNew() {
     this.store.dispatch(HotkeyActions.selectHotkey({ payload: null }));
   }
+
+  newFolder() {}
 }

@@ -12,7 +12,8 @@ export class HotkeyListComponent implements OnInit {
   @Input() hotkeys: Hotkey[];
   @Input() folders: Folder[];
 
-  @Output() select: EventEmitter<any> = new EventEmitter();
+  @Output() select: EventEmitter<Hotkey> = new EventEmitter();
+  @Output() newFolder: EventEmitter<void> = new EventEmitter();
 
   constructor() {}
 

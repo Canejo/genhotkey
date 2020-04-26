@@ -1,8 +1,12 @@
 <div class="container-fluid">
   <div class="row">
     <div class="col-3">
-      <app-hotkey-list [folders]="folders$ | async" [hotkeys]="hotkey$ | async" (select)="select($event)">
-      </app-hotkey-list>
+      <app-hotkey-list
+        [folders]="folders$ | async"
+        [hotkeys]="hotkey$ | async"
+        (select)="select($event)"
+        (newFolder)="newFolder()"
+      ></app-hotkey-list>
     </div>
     <div class="col">
       <app-hotkey-panel

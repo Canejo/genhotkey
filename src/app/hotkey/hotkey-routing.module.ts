@@ -4,7 +4,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { extract } from '@app/i18n';
 import { HotkeyHomeComponent } from './container/hotkey-home/hotkey-home.component';
 
-const routes: Routes = [{ path: 'editor', component: HotkeyHomeComponent, data: { title: extract('About') } }];
+const routes: Routes = [{ path: 'editor', component: HotkeyHomeComponent, data: { title: extract('Hotkey') } }];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
