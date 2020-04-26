@@ -6,6 +6,8 @@ import { HotkeyCollection } from '@app/store/hotkey/hotkey.collection';
 import HotkeyState from '@app/store/hotkey/hotkey.state';
 import * as HotkeyActions from '@app/store/hotkey/hotkey.actions';
 import { Hotkey } from '@app/store/hotkey/hotkey.model';
+import { AppState } from '@app/store/app.state';
+import { selectListHotkey } from '@app/store/hotkey/hotkey.selector';
 
 @Component({
   selector: 'app-hotkey-home',
@@ -13,35 +15,10 @@ import { Hotkey } from '@app/store/hotkey/hotkey.model';
   styleUrls: ['./hotkey-home.component.scss'],
 })
 export class HotkeyHomeComponent implements OnInit {
-  hotkeys: HotkeyCollection[] = [
-    {
-      Nome: 'Geral',
-      Itens: [
-        {
-          Nome: 'Pesquisar texto selecionado no google',
-        },
-        {
-          Nome: 'Corrigir palavra',
-        },
-      ],
-    },
-    {
-      Nome: 'Texto',
-      Itens: [
-        {
-          Nome: 'Uppercase',
-        },
-        {
-          Nome: 'Lowercase',
-        },
-      ],
-    },
-  ];
+  hotkey$: Observable<Array<HotkeyCollection>>;
 
-  hotkey$: Observable<HotkeyState>;
-
-  constructor(private store: Store<{ hotkey: HotkeyState }>) {
-    this.hotkey$ = store.pipe(select('hotkey'));
+  constructor(private store: Store<AppState>) {
+    this.hotkey$ = store.pipe(select(selectListHotkey));
     this.store.dispatch(HotkeyActions.listHotkey());
   }
 
