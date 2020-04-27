@@ -1,10 +1,10 @@
 <div class="container-fluid" [formGroup]="hotkeyForm">
   <div class="row my-3">
     <div class="col">
-      <input type="text" class="form-control" placeholder="Identificação" formControlName="Nome" />
+      <input type="text" class="form-control" placeholder="Identificação" formControlName="nome" />
     </div>
     <div class="col-3">
-      <input type="text" class="form-control" placeholder="Hotkey" formControlName="Atalho" />
+      <input type="text" class="form-control" placeholder="Hotkey" formControlName="atalho" />
     </div>
     <div class="col-auto">
       <button type="button" class="btn btn-primary" (click)="onSave()">Save</button>
@@ -12,7 +12,7 @@
   </div>
   <div class="row">
     <div class="col">
-      <ngx-monaco-editor formControlName="Script" [options]="editorOptions"></ngx-monaco-editor>
+      <ngx-monaco-editor formControlName="script" [options]="editorOptions"></ngx-monaco-editor>
     </div>
   </div>
 </div>

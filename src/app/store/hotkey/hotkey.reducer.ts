@@ -10,10 +10,22 @@ const reducer = createReducer(
   on(HotkeyActions.listHotkeySuccess, (state: HotkeyState, { payload }) => {
     return { ...state, hotkeys: payload };
   }),
+  on(HotkeyActions.salvarHotkeySuccess, (state: HotkeyState, { payload }) => {
+    if (state.hotkeys.find((m) => m.id === payload.id)) {
+      return {
+        ...state,
+      };
+    } else {
+      return {
+        ...state,
+        hotkeys: [...state.hotkeys, payload],
+      };
+    }
+  }),
   on(HotkeyActions.selectHotkey, (state: HotkeyState, { payload }) => {
     if (payload === null) {
-      return { ...state, selectedHotkeys: [...state.selectedHotkeys, { Id: '', Nome: 'Hotkey sem título' }] };
-    } else if (!state.selectedHotkeys.find((m) => m.Id === payload.Id)) {
+      return { ...state, selectedHotkeys: [...state.selectedHotkeys, { nome: 'Hotkey sem título' }] };
+    } else if (!state.selectedHotkeys.find((m) => m.id === payload.id)) {
       return { ...state, selectedHotkeys: [...state.selectedHotkeys, payload] };
     } else {
       return state;

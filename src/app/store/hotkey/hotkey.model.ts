@@ -1,9 +1,9 @@
 export class Hotkey {
-  Id: String;
-  IdFolder?: String;
-  Nome: String;
-  Script?: String;
-  Atalho?: String;
-  DataInclusao?: Date;
-  DataAlteracao?: Date;
+  id?: Number;
+  idFolder?: String;
+  nome: String;
+  script?: String;
+  atalho?: String;
+  dataInclusao?: Date;
+  ataAlteracao?: Date;
 }

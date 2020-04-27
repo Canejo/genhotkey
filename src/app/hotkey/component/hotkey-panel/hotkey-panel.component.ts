@@ -34,7 +34,7 @@ export class HotkeyPanelComponent implements OnInit, OnChanges {
       newValue = currentValue[0];
     }
     if (newValue) {
-      let index = this.selectedHotkey.findIndex((m) => m.Id === newValue.Id);
+      let index = this.selectedHotkey.findIndex((m) => m.id === newValue.id);
       if (index === -1) {
         index = this.selectedHotkey.length - 1;
       }

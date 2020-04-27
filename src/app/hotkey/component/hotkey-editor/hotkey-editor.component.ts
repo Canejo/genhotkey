@@ -16,10 +16,10 @@ export class HotkeyEditorComponent implements OnInit, OnChanges {
   editorOptions = { theme: 'vs-dark', language: 'javascript' };
 
   hotkeyForm = this.fb.group({
-    Id: [''],
-    Nome: ['', Validators.required],
-    Script: [''],
-    Atalho: [''],
+    id: [0],
+    nome: ['', Validators.required],
+    script: [''],
+    atalho: [''],
   });
 
   constructor(private fb: FormBuilder) {}
@@ -35,10 +35,10 @@ export class HotkeyEditorComponent implements OnInit, OnChanges {
 
   ngOnChanges(changes: SimpleChanges): void {
     this.hotkeyForm.patchValue({
-      Id: this.hotkey.Id,
-      Nome: this.hotkey.Nome,
-      Script: this.hotkey.Script,
-      Atalho: this.hotkey.Atalho,
+      id: this.hotkey.id,
+      nome: this.hotkey.nome,
+      script: this.hotkey.script,
+      atalho: this.hotkey.atalho,
     });
   }
 
@@ -58,9 +58,9 @@ export class HotkeyEditorComponent implements OnInit, OnChanges {
     const value = this.hotkeyForm.value;
     return {
       ...this.hotkey,
-      Nome: value.Nome,
-      Script: value.Script,
-      Atalho: value.Atalho,
+      nome: value.nome,
+      script: value.script,
+      atalho: value.atalho,
     };
   }
 }

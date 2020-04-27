@@ -26,7 +26,7 @@ export class HotkeyHomeComponent implements OnInit {
     this.selectedHotkey$ = store.pipe(select(selectSelectedHotkey));
     this.folders$ = store.pipe(select(selectListFolder));
 
-    this.store.dispatch(HotkeyActions.listHotkey());
+    this.store.dispatch(HotkeyActions.listHotkey({}));
     this.store.dispatch(FolderActions.listFolder());
   }
 

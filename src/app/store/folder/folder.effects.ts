@@ -8,21 +8,10 @@ import * as FolderActions from '@app/store/folder/folder.actions';
 
 @Injectable()
 export class FolderEffects {
-  folders: any[] = [
-    {
-      Id: '1',
-      Nome: 'Geral',
-    },
-    {
-      Id: '2',
-      Nome: 'Texto',
-    },
-  ];
-
   listFolder$: Observable<Action> = createEffect(() =>
     this.action$.pipe(
       ofType(FolderActions.listFolder),
-      mergeMap((action) => of(FolderActions.listFolderSuccess({ payload: this.folders })))
+      mergeMap((action) => of(FolderActions.listFolderSuccess({ payload: [] })))
     )
   );
 

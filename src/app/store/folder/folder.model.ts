@@ -1,7 +1,7 @@
 export class Folder {
-  Id: String;
-  Nome: String;
-  FolderParent: String;
-  DataInclusao?: Date;
-  DataAlteracao?: Date;
+  id: Number;
+  nome: String;
+  folderParent: String;
+  dataInclusao?: Date;
+  dataAlteracao?: Date;
 }
