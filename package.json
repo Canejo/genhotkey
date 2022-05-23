@@ -46,7 +46,7 @@
     "angular2-uuid": "^1.1.1",
     "bootstrap": "^4.1.1",
     "date-fns": "^2.9.0",
-    "dexie": "^2.0.4",
+    "dexie": "^3.2.2",
     "lodash": "^4.17.11",
     "moment": "^2.24.0",
     "ngx-monaco-editor": "^9.0.0",
